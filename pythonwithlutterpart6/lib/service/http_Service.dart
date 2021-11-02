@@ -26,7 +26,7 @@ class HttpService {
       if (json['status'] == 11) {
         // await EasyLoading.showSuccess(json['status']);
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => DashboardScreen()));
+            MaterialPageRoute(builder: (context) => DashBoardPage()));
       } else {
         print(json['status']);
         EasyLoading.showError(json['status']);
@@ -54,7 +54,7 @@ class HttpService {
         // await EasyLoading.showSuccess(json['status']);
          print(json['status']);
         Navigator.pushReplacement(context,
-            MaterialPageRoute(builder: (context) => DashboardScreen()));
+            MaterialPageRoute(builder: (context) => DashBoardPage()));
              print(json['status']);
       }
     } else {

@@ -2,8 +2,13 @@ import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:part5/service/http_Service.dart';
-
+import 'package:part5/styleguide/colors.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:part5/views/login_screen.dart';
 class RegisterScreen extends StatefulWidget {
+    final Function toggleView;
+
+  RegisterScreen({this.toggleView});
   @override
   _RegisterScreenState createState() => _RegisterScreenState();
 }
@@ -19,23 +24,59 @@ class _RegisterScreenState extends State<RegisterScreen> {
 
   @override
   Widget build(BuildContext context) {
+        Size size = MediaQuery.of(context).size;
     return Scaffold(
+        backgroundColor: Colors.blue[100],
         appBar: AppBar(
-          backgroundColor: Colors.green,
-          title: Text('Login Screen'),
+           backgroundColor: Colors.blue[400],
+           elevation: 0.0,
+          title: Text('Register Screen'),
+              actions: <Widget>[
+                ElevatedButton.icon(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.blue[400]), //Background Color
+                    elevation: MaterialStateProperty.all(0), //Defines Elevation
+                    // shadowColor:
+                    //     MaterialStateProperty.all(brown), //Defines shadowColor
+                  ),
+                  icon: Icon(Icons.person),
+                  label: Text('Login'),
+                  onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => LoginScreen()));
+            },
+                ),
+              ],
         ),
         body: Container(
-            padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+           padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
+
             child: Form(
               key: formkey,
               child: Column(
+                       mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
+                  Text(
+                "Register",
+                 style: TextStyle(fontSize: 25),
+
+            ),
+             SizedBox(height: size.height * 0.05),
+            SvgPicture.asset(
+                "assets/icons/chat.svg",
+                height: size.height * 0.4,
+            ),
+                 SizedBox(height: size.height * 0.05),
                   Container(
                     child: TextFormField(
                       validator: (value) {
                         if (value.isEmpty) {
                           return 'Username is invalid!';
                         }
+
+                          return null;
+
                       },
                       decoration: InputDecoration(hintText: 'username'),
                       onChanged: (value) {
@@ -53,6 +94,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                             .hasMatch(value)) {
                           return 'Invalid Email!';
                         }
+                        return null;
                       },
                       decoration: InputDecoration(hintText: 'email'),
                       onChanged: (value) {
@@ -69,7 +111,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                                 "^(?=.*?[A-Z])(?=.*?[a-z])(?=.*?[0-9])(?=.*?[!@#\$&*~]).{8,}\$")
                             .hasMatch(value)) {
                           return 'Password should contain at least \none upper case \none lower case \none digit \none Special character \n8 characters in length.';
-                        }
+                        }return null;
                       },
                       obscureText: true,
                       decoration: InputDecoration(hintText: 'Password'),

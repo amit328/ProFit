@@ -1,7 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:part5/service/http_Service.dart';
-
+import 'package:part5/styleguide/colors.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:part5/views/register_screen.dart';
 class LoginScreen extends StatefulWidget {
+  final Function toggleView;
+
+  LoginScreen({this.toggleView});
   @override
   _LoginScreenState createState() => _LoginScreenState();
 }
@@ -13,17 +18,50 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
+    Size size = MediaQuery.of(context).size;
+    return
+    Scaffold(
+           backgroundColor: Colors.blue[100],
       appBar: AppBar(
-        backgroundColor: Colors.red,
+        backgroundColor: Colors.blue[400],
+        elevation: 0.0,
         title: Text('Login Screen'),
+        actions: <Widget>[
+                ElevatedButton.icon(
+                  style: ButtonStyle(
+                    backgroundColor:
+                        MaterialStateProperty.all(Colors.blue[400]), //Background Color
+                    elevation: MaterialStateProperty.all(0), //Defines Elevation
+                    // shadowColor:
+                    //     MaterialStateProperty.all(brown), //Defines shadowColor
+                  ),
+                  icon: Icon(Icons.person),
+                  label: Text('Register'),
+                  onPressed: () {
+              Navigator.push(context,
+                  MaterialPageRoute(builder: (context) => RegisterScreen()));
+            },
+                ),
+              ],
       ),
       body: Container(
-        padding: EdgeInsets.symmetric(horizontal: 30, vertical: 20),
+        padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Column(
-          children: [
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: <Widget>[
+             Text(
+                "Login",
+                 style: TextStyle(fontSize: 25),
+
+            ),
+            SizedBox(height: size.height * 0.05),
+            SvgPicture.asset(
+                "assets/icons/chat.svg",
+                height: size.height * 0.4,
+            ),
+            SizedBox(height: size.height * 0.05),
             TextField(
-              decoration: InputDecoration(hintText: 'username'),
+              decoration: InputDecoration(hintText: 'Username'),
               onChanged: (value) {
                 setState(() {
                   username = value;

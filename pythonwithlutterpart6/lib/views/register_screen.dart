@@ -50,6 +50,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
               ],
         ),
         body: Container(
+          child:SingleChildScrollView(
            padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
 
             child: Form(
@@ -122,6 +123,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       },
                     ),
                   ),
+                  SizedBox(height: size.height * 0.015),
                   InkWell(
                     onTap: () async {
                       setState(() {
@@ -130,6 +132,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                       });
                       await HttpService.register(username, email, pass, context);
                     },
+
                     child: Container(
                       margin:
                           EdgeInsets.symmetric(horizontal: 20, vertical: 10),
@@ -148,6 +151,9 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                 ],
               ),
-            )));
+            ),
+          ),
+            )
+            );
   }
 }

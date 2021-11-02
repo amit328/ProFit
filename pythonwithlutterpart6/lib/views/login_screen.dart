@@ -45,6 +45,7 @@ class _LoginScreenState extends State<LoginScreen> {
               ],
       ),
       body: Container(
+                  child:SingleChildScrollView(
         padding: EdgeInsets.symmetric(vertical: 20.0, horizontal: 50.0),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
@@ -77,6 +78,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 });
               },
             ),
+            SizedBox(height: size.height * 0.015),
             InkWell(
               onTap: () async {
                 await HttpService.login(username, pass, context);
@@ -98,6 +100,7 @@ class _LoginScreenState extends State<LoginScreen> {
             ),
           ],
         ),
+                  ),
       ),
     );
   }

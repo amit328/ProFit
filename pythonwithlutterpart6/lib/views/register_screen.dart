@@ -78,7 +78,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                           return null;
 
                       },
-                      decoration: InputDecoration(hintText: 'username'),
+                      decoration: InputDecoration(hintText: 'Username'),
                       onChanged: (value) {
                         setState(() {
                           username = value;
@@ -96,7 +96,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                         }
                         return null;
                       },
-                      decoration: InputDecoration(hintText: 'email'),
+                      decoration: InputDecoration(hintText: 'Email'),
                       onChanged: (value) {
                         setState(() {
                           email = value;

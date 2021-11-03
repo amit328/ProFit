@@ -28,9 +28,18 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
         backgroundColor: Colors.blue[100],
         appBar: AppBar(
-           backgroundColor: Colors.blue[400],
+           backgroundColor: Colors.white,
            elevation: 0.0,
-          title: Text('Register Screen'),
+          title: Row(
+            children: [
+              Image.asset(
+                'assets/applogo.jpeg',
+                fit: BoxFit.contain,
+                height: 50,
+              ),
+              Text('ProFit', style: TextStyle(color: Colors.black, fontSize: 30),),
+            ],
+          ),
               actions: <Widget>[
                 ElevatedButton.icon(
                   style: ButtonStyle(

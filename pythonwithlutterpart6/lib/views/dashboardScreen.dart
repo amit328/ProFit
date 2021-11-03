@@ -13,6 +13,23 @@ class DashBoardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar:AppBar(
+        backgroundColor: Colors.white,
+        centerTitle: true,
+         title: Row(
+            children: [
+              SizedBox(
+                width: 90.0,
+              ),
+              Image.asset(
+                'assets/applogo.jpeg',
+                fit: BoxFit.contain,
+                height: 50,
+              ),
+              Text('ProFit', style: TextStyle(color: Colors.black, fontSize: 30),),
+            ],
+          ),
+      ),
       body: 
       FooterView(
           children: <Widget>[

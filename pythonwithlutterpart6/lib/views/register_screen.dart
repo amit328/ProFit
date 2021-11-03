@@ -64,7 +64,7 @@ class _RegisterScreenState extends State<RegisterScreen> {
                   ),
                   SizedBox(height: size.height * 0.05),
                   SvgPicture.asset(
-                    "assets/icons/chat.svg",
+                    "assets/icons/signup.svg",
                     height: size.height * 0.4,
                   ),
                   SizedBox(height: size.height * 0.05),

@@ -3,6 +3,9 @@ import 'package:part5/styleguide/text_styles.dart';
 import 'package:part5/widgets/card_detail.dart';
 import 'package:part5/widgets/circle_indicator.dart';
 import 'package:percent_indicator/percent_indicator.dart';
+import 'package:footer/footer.dart';
+import 'package:footer/footer_view.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 
 class DashBoardPage extends StatelessWidget {
   const DashBoardPage({Key key}) : super(key: key);
@@ -10,7 +13,15 @@ class DashBoardPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
+      body: 
+      FooterView(
+          children: <Widget>[
+            new Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                new Padding(
+                  padding: EdgeInsets.only(top:50),
+                    child: Column(
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           Text(
@@ -105,11 +116,94 @@ class DashBoardPage extends StatelessWidget {
             iconData: Icons.nightlight_outlined,
             iconColor: Color(0xFF1C3AA9),
           ),
-          const SizedBox(
-            height: 40,
-          ),
+          // const SizedBox(
+          //   height: 40,
+          // ),
         ],
       ),
+                )
+              ],
+            ),
+          ],
+          footer: new Footer(
+              child: new Padding(
+              padding: EdgeInsets.all(5.0),
+              child: new Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.spaceAround,
+                children:<Widget>[
+                  new Center(
+                    child:new Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: <Widget>[
+                        new Container(
+                          height: 45.0,
+                          width: 45.0,
+                          child: Center(
+                            child:Card(
+                              elevation: 5.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0), // half of height and width of Image
+                              ),
+                              child: IconButton(
+                                icon: FaIcon(FontAwesomeIcons.instagram),
+                                color: Color(0xFF162A49),
+                                onPressed: () {},
+                              ),
+                            ),
+                          )
+                        ),
+                        new Container(
+                          height: 45.0,
+                          width: 45.0,
+                          child: Center(
+                            child:Card(
+                              elevation: 5.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0), // half of height and width of Image
+                              ),
+                              child: IconButton(
+                                icon: FaIcon(FontAwesomeIcons.twitter),
+                                color: Color(0xFF162A49),
+                                onPressed: () {},
+                              ),
+                            ),
+                          )
+                        ),
+                        new Container(
+                          height: 45.0,
+                          width: 45.0,
+                          child: Center(
+                            child:Card(
+                              elevation: 5.0,
+                              shape: RoundedRectangleBorder(
+                                borderRadius: BorderRadius.circular(25.0), // half of height and width of Image
+                              ),
+                              child: IconButton(
+                                icon: FaIcon(FontAwesomeIcons.facebook),
+                                color: Color(0xFF162A49),
+                                onPressed: () {},
+                              ),
+                            ),
+                          )
+                        ),
+            
+                      ],
+                    ),
+                  ),
+                  const SizedBox(
+                    height: 10,
+                  ),
+                  Text('Share your progress on your socials!',style: TextStyle(fontWeight:FontWeight.w300, fontSize: 12.0, color: Color(0xFF162A49)),),
+                ]
+              ),
+            ),
+          )
+      ),
+      
+    
+          
+
     );
   }
 }

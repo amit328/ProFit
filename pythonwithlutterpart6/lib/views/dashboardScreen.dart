@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:part5/styleguide/text_styles.dart';
 import 'package:part5/widgets/card_detail.dart';
@@ -6,6 +8,7 @@ import 'package:percent_indicator/percent_indicator.dart';
 import 'package:footer/footer.dart';
 import 'package:footer/footer_view.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:flutter_appavailability/flutter_appavailability.dart';
 
 class DashBoardPage extends StatelessWidget {
   const DashBoardPage({Key key}) : super(key: key);
@@ -165,7 +168,24 @@ class DashBoardPage extends StatelessWidget {
                               child: IconButton(
                                 icon: FaIcon(FontAwesomeIcons.instagram),
                                 color: Color(0xFF162A49),
-                                onPressed: () {},
+                                onPressed: () {
+                                  if(Platform.isAndroid){
+                                    AppAvailability.launchApp('com.instagram.android').then((_) {
+                                      print("app launched!");
+                                    }).catchError((err) {
+                                      print('app not found!');
+                                      print(err);
+                                    });
+                                  }
+                                  else if(Platform.isIOS){
+                                    AppAvailability.launchApp('instagram://').then((_) {
+                                      print("app launched!");
+                                    }).catchError((err) {
+                                      print('app not found!');
+                                      print(err);
+                                    });
+                                  }
+                                },
                               ),
                             ),
                           )
@@ -182,7 +202,24 @@ class DashBoardPage extends StatelessWidget {
                               child: IconButton(
                                 icon: FaIcon(FontAwesomeIcons.twitter),
                                 color: Color(0xFF162A49),
-                                onPressed: () {},
+                                onPressed: () {
+                                  if(Platform.isAndroid){
+                                    AppAvailability.launchApp('com.twitter.android').then((_) {
+                                      print("app launched!");
+                                    }).catchError((err) {
+                                      print('app not found!');
+                                      print(err);
+                                    });
+                                  }
+                                  else if(Platform.isIOS){
+                                    AppAvailability.launchApp('twitter://').then((_) {
+                                      print("app launched!");
+                                    }).catchError((err) {
+                                      print('app not found!');
+                                      print(err);
+                                    });
+                                  }
+                                },
                               ),
                             ),
                           )
@@ -199,7 +236,24 @@ class DashBoardPage extends StatelessWidget {
                               child: IconButton(
                                 icon: FaIcon(FontAwesomeIcons.facebook),
                                 color: Color(0xFF162A49),
-                                onPressed: () {},
+                                onPressed: () {
+                                  if(Platform.isAndroid){
+                                    AppAvailability.launchApp('com.Facebook.katana').then((_) {
+                                      print("app launched!");
+                                    }).catchError((err) {
+                                      print('app not found!');
+                                      print(err);
+                                    });
+                                  }
+                                  else if(Platform.isIOS){
+                                    AppAvailability.launchApp('fb://').then((_) {
+                                      print("app launched!");
+                                    }).catchError((err) {
+                                      print('app not found!');
+                                      print(err);
+                                    });
+                                  }
+                                },
                               ),
                             ),
                           )

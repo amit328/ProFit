@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_easyloading/flutter_easyloading.dart';
 // import 'package:part5/views/welcome_screen.dart';
 import 'package:part5/views/login_screen.dart';
+// import 'package:part5/views/dashboardScreen.dart';
 void main() {
   runApp(MyApp());
 }

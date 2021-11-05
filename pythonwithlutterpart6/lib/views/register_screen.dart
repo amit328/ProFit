@@ -29,12 +29,12 @@ class _RegisterScreenState extends State<RegisterScreen> {
     return Scaffold(
         backgroundColor: Colors.blue[100],
         appBar: AppBar(
-          backgroundColor: Colors.white,
+          backgroundColor: Colors.blue[400],
           elevation: 0.0,
           title: Row(
             children: [
               Image.asset(
-                'assets/applogo.jpeg',
+                'assets/applogo.png',
                 fit: BoxFit.contain,
                 height: 50,
               ),
